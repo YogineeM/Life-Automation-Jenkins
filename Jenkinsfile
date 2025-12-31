@@ -57,7 +57,7 @@ pipeline {
                         ${env.JAVA_OUTPUT}
                     </p>
                 """,
-                to: "yogineemondkar03@gmail.com,
+                to: "yogineemondkar03@gmail.com",
                 mimeType: 'text/html'
             )
         }
@@ -77,7 +77,7 @@ pipeline {
                         ${env.JAVA_OUTPUT}
                     </p>
                 """,
-                to: "yogineemondkar03@gmail.com,
+                to: "yogineemondkar03@gmail.com",
                 mimeType: 'text/html'
             )
         }

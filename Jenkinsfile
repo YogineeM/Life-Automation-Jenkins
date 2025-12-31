@@ -1,8 +1,32 @@
-stage('Build') {
-    steps {
-        echo 'Building project...'
-        withMaven(maven: 'Maven-3') {
-            bat 'mvn clean package'
+pipeline {
+    agent any
+
+    tools {
+        maven 'Maven-3'
+    }
+
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building project...'
+                bat 'mvn clean package'
+            }
+        }
+
+        stage('Run') {
+            steps {
+                echo 'Running Festival Service...'
+                bat 'java -jar target/*.jar'
+            }
+        }
+    }
+
+    post {
+        success {
+            echo '✅ Jenkins Job completed successfully!'
+        }
+        failure {
+            echo '❌ Jenkins Job failed!'
         }
     }
 }

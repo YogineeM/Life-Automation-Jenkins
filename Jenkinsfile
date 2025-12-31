@@ -7,12 +7,6 @@ pipeline {
 
     stages {
 
-        stage('Checkout Code') {
-            steps {
-                git branch: 'main', url: 'https://github.com/YOUR_USERNAME/LifeAutomationJenkins.git'
-            }
-        }
-
         stage('Build') {
             steps {
                 bat 'mvn clean package'

@@ -16,7 +16,7 @@ pipeline {
         stage('Run') {
             steps {
                 echo 'Running Festival Service...'
-                bat 'java -jar target/*.jar'
+                bat 'java -jar target\\LifeAutomationJenkins-0.0.1-SNAPSHOT.jar'
             }
         }
     }

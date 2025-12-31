@@ -1,17 +1,13 @@
-date,festival
-01-Jan,New Year
-14-Jan,Makar Sankranti
-26-Jan,Republic Day
-04-Mar,Holi
-19-Mar,Ram Navami
-02-Apr,Mahavir Jayanti
-14-Apr,Dr Ambedkar Jayanti
-23-Aug,Raksha Bandhan
-27-Aug,Janmashtami
-18-Sep,Ganesh Chaturthi
-02-Oct,Gandhi Jayanti
-20-Oct,Dussehra
-09-Nov,Diwali
-10-Nov,Bhai Dooj
-25-Dec,Christmas
-31-Dec,New Year's Eve (Last year carry-forward)
+Date,Festival
+01-01,New Year’s Day
+01-26,Republic Day
+03-17,Holi
+04-02,Good Friday
+04-10,Ram Navami
+05-01,Labor Day
+05-07,Eid-ul-Fitr
+08-15,Independence Day
+10-02,Gandhi Jayanti
+10-31,Halloween
+11-01,Diwali
+12-25,Christmas

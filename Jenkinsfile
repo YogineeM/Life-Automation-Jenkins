@@ -32,7 +32,7 @@ pipeline {
                     <p>The Jenkins job '<b>${env.JOB_NAME}</b>' has finished successfully.</p>
                     <p>Check build details: <a href='${env.BUILD_URL}'>${env.BUILD_URL}</a></p>
                 """,
-                to: "yogineemondkar03@gmail.com","imabhayakauab2525@gmail.com",
+                to: "yogineemondkar03@gmail.com, imabhayakauab2525@gmail.com"
                 mimeType: 'text/html'
             )
         }
@@ -47,7 +47,7 @@ pipeline {
                     <p>The Jenkins job '<b>${env.JOB_NAME}</b>' has FAILED.</p>
                     <p>Check build details: <a href='${env.BUILD_URL}'>${env.BUILD_URL}</a></p>
                 """,
-                to: "yogineemondkar03@gmail.com","imabhayakauab2525@gmail.com",
+                 to: "yogineemondkar03@gmail.com, imabhayakauab2525@gmail.com"
                 mimeType: 'text/html'
             )
         }

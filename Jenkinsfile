@@ -60,7 +60,7 @@ pipeline {
                         <p>Check build details: <a href='${env.BUILD_URL}'>View Build</a></p>
                         <hr style="border:1px solid #ccc;">
                         <p><b>🎉 Today's Output:</b></p>
-                        <p style="font-size:16px;">${env.JAVA_OUTPUT}</p>
+                        <p style="font-size:16px; color:green;">${env.JAVA_OUTPUT}</p>
                     </div>
                 """,
                 to: "yogineemondkar03@gmail.com, imabhayakauab2525@gmail.com",

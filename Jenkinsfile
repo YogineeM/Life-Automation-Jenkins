@@ -13,36 +13,33 @@ pipeline {
             }
         }
 
-stage('Run') {
-    steps {
-        echo 'Running Festival Service...'
-        script {
-            // Run the jar and capture output
-            def result = bat(
-                script: 'java -jar target\\LifeAutomationJenkins-0.0.1-SNAPSHOT.jar',
-                returnStdout: true
-            ).trim()
+        stage('Run') {
+            steps {
+                echo 'Running Festival Service...'
+                script {
+                    // Run the jar and capture output
+                    def result = bat(
+                        script: 'java -jar target\\LifeAutomationJenkins-0.0.1-SNAPSHOT.jar',
+                        returnStdout: true
+                    ).trim()
 
-            // Remove the command echo line (first line)
-            def lines = result.readLines()
-            def cleanedLines = lines.findAll { !it.startsWith('C:\\') && !it.startsWith('?') && it.trim() != '' }
+                    // Remove unwanted leading characters (like '? ')
+                    result = result.replaceFirst(/^\\?\\s*/, '')
 
-            // Join back into single string
-            def outputText = cleanedLines.join('\n').trim()
-
-            // Optional: highlight only the day name
-            def parts = outputText.split(":", 2)
-            if (parts.length == 2) {
-                def beforeColon = parts[0] + ":"
-                def afterColon = parts[1].trim()
-                env.JAVA_OUTPUT = "${beforeColon} <span style='color:orange; font-weight:bold;'>${afterColon}</span>"
-                } else {
-                env.JAVA_OUTPUT = outputText
+                    // Optional: highlight only the day name
+                    // e.g., split at colon and color the part after colon
+                    def parts = result.split(":", 2)
+                    if (parts.length == 2) {
+                        def beforeColon = parts[0] + ":"
+                        def afterColon = parts[1].trim()
+                        env.JAVA_OUTPUT = "${beforeColon} <span style='color:orange; font-weight:bold;'>${afterColon}</span>"
+                    } else {
+                        env.JAVA_OUTPUT = result
                     }
+                }
             }
         }
     }
-}
 
     post {
         success {

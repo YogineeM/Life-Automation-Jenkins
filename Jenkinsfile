@@ -1,28 +1,26 @@
 pipeline {
     agent any
 
-    triggers {
-        cron('H 7 * * *')   // runs daily at 7 AM
-    }
-
     stages {
 
         stage('Build') {
             steps {
+                echo 'Building project...'
                 bat 'mvn clean package'
             }
         }
 
         stage('Run Festival Service') {
             steps {
-                bat 'java -jar target/LifeAutomationJenkins-0.0.1-SNAPSHOT.jar'
+                echo 'Running Festival Service...'
+                bat 'java -cp target/classes com.lifeautomation.reminder.FestivalService'
             }
         }
     }
 
     post {
         success {
-            echo '🎉 Jenkins Job executed successfully!'
+            echo '✅ Jenkins Job completed successfully!'
         }
         failure {
             echo '❌ Jenkins Job failed!'
